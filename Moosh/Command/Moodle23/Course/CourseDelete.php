@@ -27,8 +27,8 @@ class CourseDelete extends MooshCommand
         
         global $CFG, $DB, $COURSE;
         $table='course';
-        $select="name LIKE '$this->arguments[0]%'";
-        $courses = $DB->get_records_sql($table,$select);
+        $select="name LIKE '".$this->arguments[0]."%'";
+        $courses = $DB->get_records_select($table,$select);
         
         foreach ($courses as $course){
             delete_course($course);

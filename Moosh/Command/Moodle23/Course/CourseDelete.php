@@ -31,6 +31,7 @@ class CourseDelete extends MooshCommand
         $courses = $DB->get_records_select($table,$select);
         
         foreach ($courses as $course){
+            print "Delete course ".$course->fullname."\n";
             delete_course($course);
         }
         
